@@ -10,7 +10,6 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'flazz/vim-colorschemes'
@@ -23,6 +22,8 @@ Plugin 'klen/python-mode'
 Plugin 'embear/vim-localvimrc'
 Plugin 'janko-m/vim-test'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 " Split navigation shortcuts
@@ -46,28 +47,15 @@ filetype plugin on
 
 autocmd BufNewFile,BufRead *.rss set filetype=xml
 
-autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
-
 " These are style based:
+autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+autocmd FileType yaml setlocal ts=4 sts=4 sw=4 autoindent
 autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType sass setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType scala setlocal ts=2 sts=2 sw=2 expandtab
-
-au filetype html set omnifunc=htmlcomplete#CompleteTags
-au filetype css set omnifunc=csscomplete#CompleteCSS
-au filetype javascript set omnifunc=javascriptcomplete#CompleteJS
-au filetype c set omnifunc=ccomplete#Complete
-au filetype php set omnifunc=phpcomplete#CompletePHP
-au filetype ruby set omnifunc=rubycomplete#Complete
-au filetype python set omnifunc=pythoncomplete#Complete
-au filetype xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType python set omnifunc=pythoncomplete#Complete colorcolumn=80
-autocmd FileType python set autoindent
-autocmd FileType javascript set autoindent
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab autoindent
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab autoindent
+autocmd FileType python set colorcolumn=80 autoindent
 autocmd BufWrite *.py call Flake8()
 
 set encoding=utf-8
@@ -78,23 +66,27 @@ set nu
 set noswapfile
 
 " Use global clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_goto_buffer_command='new-tab'
 let g:ctrlp_open_new_file = 't'
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#show_call_signatures = "2"
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r""
 
 let mapleader = ","
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>m :NERDTreeToggle<CR>
 map <leader>k :tabprevious<CR>
 map <leader>l :tabnext<CR>
-
-map <leader>bb :YcmCompleter GoToReferences<CR>
 
 " enable venv
 py << EOF
