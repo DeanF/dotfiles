@@ -1,24 +1,24 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/dean/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=1
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -27,16 +27,16 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+VIRTUAL_ENV_DISABLE_PROMPT="false"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
@@ -49,15 +49,14 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autopep8 celery cp docker docker-compose github nmap pep8 pip python virtualenv screen ubuntu vim-interaction conda aws)
+plugins=(aws battery celery command-not-found common-aliases copyfile cp dirhistory docker docker-compose extract fabric fancy-ctrl-z git git-extras gitfast gitignore globalias goland history httpie iwhois jira node npm pip python redis-cli screen virtualenv virtualenvwrapper vundle ubuntu)
 
 # User configuration
 
-  export PATH="/home/dean/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+  export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source /home/dean/.zsh_profile
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
@@ -88,11 +87,11 @@ autoload -Uz compinit && compinit -i
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # added by Anaconda2 2.4.1 installer
-export PATH="/home/dean/anaconda2/bin:/home/dean/packer:$PATH"
-export GOPATH="/home/dean/.go"
+export PATH="$HOME/anaconda2/bin:$PATH"
+export GOPATH="$HOME/.go"
 export TERM=xterm-256color
-export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 export DEFAULT_USER=$USER
+
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
@@ -103,5 +102,3 @@ if [ -x /usr/bin/dircolors ]; then
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
 fi
-
-sudo chmod -R 777 /tmp
