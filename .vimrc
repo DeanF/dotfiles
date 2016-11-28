@@ -118,5 +118,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(pyc|so)$'
   \ }
 
-set background=dark
+set background=light
 colorscheme solarized
+set backspace=indent,eol,start
