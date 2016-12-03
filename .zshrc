@@ -123,7 +123,7 @@ VIRTUAL_ENV_DISABLE_PROMPT="false"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws celery command-not-found common-aliases copyfile cp dirhistory docker docker-compose extract fabric fancy-ctrl-z git git-extras gitfast gitignore goland history httpie iwhois jira node npm pip python redis-cli screen virtualenv virtualenvwrapper ubuntu)
+plugins=(aws celery command-not-found common-aliases copyfile cp dirhistory docker docker-compose extract fabric fancy-ctrl-z git git-extras gitfast gitignore goland history httpie iwhois jira node npm pip python redis-cli screen virtualenv virtualenvwrapper ubuntu zsh-completion)
 
 # User configuration
 
@@ -181,4 +181,4 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # OPAM configuration
-. /home/dean/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
