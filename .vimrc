@@ -89,7 +89,7 @@ map <leader>k :tabprevious<CR>
 map <leader>l :tabnext<CR>
 
 " enable venv
-py << EOF
+py3 << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
@@ -118,6 +118,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(pyc|so)$'
   \ }
 
-set background=light
+set background=dark
 colorscheme solarized
 set backspace=indent,eol,start
