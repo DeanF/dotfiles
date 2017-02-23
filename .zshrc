@@ -10,7 +10,7 @@ POWERLEVEL9K_MODE='awesome-patched'
 
 zsh_wifi_signal(){
   local active_network=$(nmcli dev status | grep wifi | grep connected | awk '{print $4}')
-  if [ $active_network = "" ]; then
+  if [[ $active_network -eq "" ]]; then
 
   else
     local signal=$(nmcli dev wifi | grep "${active_network}" | awk '{print $7}')
